@@ -1,0 +1,36 @@
+CLINIC_NAMES = [
+    "Aurora Health Clinic",
+    "Green Valley Medical",
+    "Sunrise Wellness Center",
+    "Harmony Care Hospital",
+    "Lakeside Family Clinic",
+    "City Heart Institute",
+    "North Star Medical",
+    "Riverbend Care",
+    "Summit Health Group",
+    "Beacon Primary Care",
+]
+
+
+DOCTOR_NAMES = [
+    "Dr. Alex Morgan",
+    "Dr. Jamie Rivera",
+    "Dr. Taylor Chen",
+    "Dr. Casey Patel",
+    "Dr. Jordan Lee",
+    "Dr. Riley Kim",
+    "Dr. Morgan Blake",
+    "Dr. Avery Scott",
+    "Dr. Quinn Bailey",
+    "Dr. Dakota Hayes",
+    "Dr. Cameron Price",
+    "Dr. Sydney Brooks",
+    "Dr. Peyton Cruz",
+    "Dr. Robin Garcia",
+    "Dr. Charlie Nguyen",
+    "Dr. Frankie Diaz",
+    "Dr. Reese Cooper",
+    "Dr. Bailey Torres",
+    "Dr. Skyler Flores",
+    "Dr. Kendall Adams",
+]

@@ -9,6 +9,7 @@
   - `POST /make-appointmet`: create appointment with clinic_id, doctor_id, date, time, user_name, user_phone; validates doctor belongs to clinic.
 - Files:
   - `/backend/main.py` – app, models, routes, DB setup.
+  - `/backend/seed_data.py` – seed lists for clinics (10) and doctors (20 names).
   - `/backend/requirements.txt` – dependencies (fastapi, uvicorn, sqlalchemy).
   - `/backend/backend.md` – backend specs and run instructions.
 
@@ -16,3 +17,4 @@
 - No auth implemented (per scope).
 - SQLite DB file lives in `/backend/database.sqlite3`. Tables auto-created on app startup.
 - Ensure front-end calls use the exact path `/make-appointmet` (typo retained intentionally to match contract).
+- On startup, if no clinics exist, backend seeds 10 clinics and 20 doctors per clinic.

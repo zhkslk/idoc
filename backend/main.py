@@ -2,8 +2,10 @@ from typing import Generator, List, Optional
 
 from fastapi import Depends, FastAPI, HTTPException, Query, status
 from pydantic import BaseModel, Field
-from sqlalchemy import Column, ForeignKey, Integer, String, create_engine, select
+from sqlalchemy import Column, ForeignKey, Integer, String, create_engine, func, select
 from sqlalchemy.orm import Session, declarative_base, relationship, selectinload, sessionmaker
+
+from .seed_data import CLINIC_NAMES, DOCTOR_NAMES
 
 
 DATABASE_URL = "sqlite:///./database.sqlite3"
@@ -104,6 +106,29 @@ app = FastAPI(title="Medical Directory API", version="0.1.0")
 @app.on_event("startup")
 def on_startup() -> None:
     create_tables()
+    with SessionLocal() as db:
+        seed_initial_data(db)
+
+
+def seed_initial_data(db: Session) -> None:
+    existing_clinics = db.scalar(select(func.count()).select_from(Clinic))
+    if existing_clinics and existing_clinics > 0:
+        return
+
+    for clinic_name in CLINIC_NAMES:
+        clinic = Clinic(name=clinic_name)
+        db.add(clinic)
+        db.flush()  # obtain clinic.id
+
+        for doctor_name in DOCTOR_NAMES:
+            db.add(
+                Doctor(
+                    name=f"{doctor_name} ({clinic_name})",
+                    clinic_id=clinic.id,
+                )
+            )
+
+    db.commit()
 
 
 @app.get("/clinics", response_model=List[ClinicOut], summary="List clinics")

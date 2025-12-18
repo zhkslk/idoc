@@ -12,6 +12,7 @@ Medical directory API providing clinics, doctors, and appointment booking.
 - `backend/main.py` — app entrypoint, models, DB session, routes.
 - `backend/requirements.txt` — dependencies.
 - `backend/database.sqlite3` — created at runtime.
+- `backend/seed_data.py` — static seed data for clinics and doctors.
 
 ## Setup
 1. Create venv (recommended):
@@ -47,5 +48,6 @@ uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 
 ## Notes
 - Startup auto-creates tables.
+- On startup, seed data inserts 10 clinics and 20 doctors per clinic if no clinics exist yet.
 - No auth implemented (per requirements).
 - Endpoint path keeps provided spelling: `/make-appointmet`.
