@@ -152,18 +152,6 @@ body {
   overflow: hidden;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 10% auto -25% 55%;
-  width: 220px;
-  height: 220px;
-  background: var(--surface);
-  border-radius: 32px;
-  transform: rotate(-12deg);
-  border: 1px solid var(--border);
-}
-
 .hero h1 {
   font-size: clamp(32px, 4vw, 44px);
   margin: 0 0 12px;
